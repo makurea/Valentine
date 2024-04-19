@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&#x2665; Valentine</title> <!-- Символ сердца добавлен с помощью Unicode -->
+<link rel="icon" href="https://e7.pngegg.com/pngimages/319/414/png-clipart-heart-love-valentines-day-loveheart-love-heart.png"> <!--  фавикон  -->
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        /* Настройки фона */
+        background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-12/1639688665_16-catherineasquithgallery-com-p-fon-rozovii-milii-23.jpg');
+        background-size: cover; /* Растягиваем изображение на всю ширину и высоту экрана */
+        background-position: center; /* Центрируем изображение */
+    }
+    #valentine-text {
+        font-size: 36px;
+        color: rgb(129, 31, 147);
+        margin-bottom: 20px;
+        font-family: 'Brush Script MT', cursive; /* Используем шрифт Brush Script */
+    }
+    .button {
+        padding: 20px 40px;
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 20px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+    }
+    #yes-button {
+        background-color: rgb(188, 112, 164);
+        color: white;
+    }
+    #no-button {
+        background-color: rgb(146, 145, 185);
+        color: white;
+    }
+    .valentine-gif {
+        width: 480px; /* Устанавливаем ширину */
+        height: 390px; /* Устанавливаем высоту */
+        margin: 20px auto;
+    }
+    .pink {
+        color: rgb(232, 44, 175);
+    }
+    .pink2 {
+        color: rgb(238, 37, 178);
+        font-family: 'Brush Script MT', cursive;
+    }
+</style>
+</head>
+<body>
+
+<img class="valentine-gif" src="https://i.pinimg.com/originals/c1/f3/02/c1f302789537640d8254fd1f628b2b0e.gif" alt="Валентинка" loop>
+<div id="valentine-text">Ты будешь моей валентинкой?</div>
+<button id="yes-button" class="button">Да</button>
+<button id="no-button" class="button">Нет</button>
+
+<script>
+    const valentineText = document.getElementById('valentine-text');
+    const yesButton = document.getElementById('yes-button');
+    const noButton = document.getElementById('no-button');
+    const valentineGif = document.querySelector('.valentine-gif');
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    noButton.addEventListener('mouseover', () => {
+        const randomX = Math.random() * screenWidth;
+        const randomY = Math.random() * screenHeight;
+        noButton.style.display = 'none';
+        setTimeout(() => {
+            noButton.style.display = 'block';
+            noButton.style.position = 'fixed';
+            // Проверяем, чтобы кнопка "Нет" не вышла за пределы экрана
+            const left = Math.max(10, Math.min(screenWidth - 10, randomX));
+            const top = Math.max(10, Math.min(screenHeight - 10, randomY));
+            noButton.style.left = `${left}px`;
+            noButton.style.top = `${top}px`;
+        }, 100);
+    });
+
+    yesButton.addEventListener('click', () => {
+        valentineText.innerHTML = '<span class="pink2">Ура, спасибушки) <span class="pink">&#x2665; ❤ ღ ❦ ❥❣</span>';
+        valentineText.style.color = 'pink';
+        valentineGif.src = 'https://media.tenor.com/9_Cuwoj-m5wAAAAi/cute-cat.gif';
+        valentineGif.style.width = '480px'; // Устанавливаем ширину
+        valentineGif.style.height = '390px'; // Устанавливаем высоту
+        yesButton.style.display = 'none';
+        noButton.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
